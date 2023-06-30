@@ -14,19 +14,14 @@ app.get('/', (req, res) => {
   res.send('Servidor Socket.IO está rodando!')
 })
 
-// Lógica do Socket.IO
 io.on('connection', (socket) => {
   console.log(`Cliente ${socket.id} se conectou.`)
 
-  // Lida com eventos do cliente
   socket.on('message', (mensagem) => {
     console.log('Mensagem recebida:', mensagem)
-
-    // Emitir a mensagem para todos os clientes conectados
     io.emit('message', mensagem)
   })
 
-  // Lidar com eventos de desconexão do cliente
   socket.on('disconnect', () => {
     console.log('Um cliente se desconectou.')
   })

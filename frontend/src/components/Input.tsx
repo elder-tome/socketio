@@ -4,11 +4,10 @@ type Props = DetailedHTMLProps<
   InputHTMLAttributes<HTMLInputElement>,
   HTMLInputElement
 > & { error?: string; nameInput: string }
-
 export default function Input({ error, nameInput, ...rest }: Props) {
   return (
     <div className="flex w-full flex-col">
-      <div className="flex justify-between">
+      <div className="flex justify-between px-2">
         <label htmlFor={nameInput}>Mensagem</label>
         <span className={`${error && 'text-red-400'}`}>{error}</span>
       </div>
